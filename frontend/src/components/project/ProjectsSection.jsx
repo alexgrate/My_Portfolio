@@ -5,7 +5,8 @@ const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-      fetch('p01--alexdominion--fmvjx7pzd27y.code.run/api/projects/')
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+      fetch(`${API_BASE_URL}/api/projects/`)
           .then(res => res.json())
           .then(data => setProjects(data))
           .catch(err => console.error("Error fetching projects:", err)); 

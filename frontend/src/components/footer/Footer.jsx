@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
-import { Linkedin, Twitter } from "lucide-react"
+import { Linkedin, Twitter, Github } from "lucide-react"
 import AnimatedItem from "../AnimatedItem";
 
 const socials = [
+    {
+        label: "GitHub",
+        href: "https://github.com/alexgrate",
+        icon: <Github />,
+    },
     {
         label: "LinkedIn",
         href: "https://linkedin.com/in/aigbodion-dominion-336263254",

@@ -15,8 +15,8 @@ const ContactSection = () => {
 
     const handleChange = (e) => {
         setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
+            ...formData,
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -25,27 +25,28 @@ const ContactSection = () => {
         setStatus("submitting");
 
         try {
-        const response = await fetch("p01--alexdominion--fmvjx7pzd27y.code.run/api/contact/", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+            const response = await fetch(`${API_BASE_URL}/api/contact/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-        if (response.ok) {
-            setStatus("success");
-            setFormData({ name: "", email: "", website: "", budget: "", message: "" });
-            
-            setTimeout(() => setStatus("idle"), 5000);
-        } else {
+            if (response.ok) {
+                setStatus("success");
+                setFormData({ name: "", email: "", website: "", budget: "", message: "" });
+                
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 5000);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
             setStatus("error");
             setTimeout(() => setStatus("idle"), 5000);
-        }
-        } catch (error) {
-        console.error("Error submitting form:", error);
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
         }
     };
 

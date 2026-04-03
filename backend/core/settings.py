@@ -60,9 +60,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
+
 CORS_ALLOWED_ORIGINS =[
     "http://localhost:5173",
-    "https://my-portfolio-cdpc.onrender.com",
+    "http://localhost:3000",
+    FRONTEND_URL,
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -90,17 +93,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASE_URL = os.environ.get("DB_URL")
 
-if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+DATABASES = {
+    "default": dj_database_url.parse(
+        DATABASE_URL, 
+        conn_max_age=600,
+        ssl_require=True 
+    )
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -151,4 +151,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER") 
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD") 
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")

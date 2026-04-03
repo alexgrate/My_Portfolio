@@ -56,11 +56,14 @@ const SkillsSection = () => {
                         <AnimatedItem
                             key={exp.id}
                             delay={0.3 + index * 0.1}
-                            className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 rounded-2xl bg-[#f7f7f7] p-5 md:px-6 transition-all duration-300 hover:bg-[#f0f0f0]"
+                            className="group flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between rounded-2xl bg-[#f7f7f7] p-5 md:px-6 transition-all duration-300 hover:bg-[#f0f0f0]"
                         >
-                            <span className="text-[15px] font-medium text-gray-800 w-1/3">{exp.role}</span>
-                            <span className="text-[15px] text-gray-500 w-1/3 sm:text-center">{exp.company}</span>
-                            <span className="text-[14px] text-gray-400 w-1/3 sm:text-right">{exp.date}</span>
+                            <span className="text-[16px] sm:text-[15px] font-medium text-gray-800 w-1/3">{exp.role}</span>
+                            <div className="flex items-center justify-between sm:w-2/3 mt-1 sm:mt-0">
+                                <span className="text-[14px] sm:text-[15px] text-gray-500 w-1/2 sm:text-center">{exp.company}</span>
+                                <span className="text-[13px] sm:text-[14px] text-gray-400 w-1/2 sm:text-right">{exp.date}</span>
+                            </div>
+                            
                         </AnimatedItem>
                     ))}
                 </div>

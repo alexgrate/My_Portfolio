@@ -104,7 +104,7 @@ const FaqSection = () => {
                         <FaqItem
                             key={faq.id}
                             faq={faq}
-                            isInitiallyOpen={index === 0} 
+                            isInitiallyOpen={false} 
                             delay={0.15 + index * 0.15}
                         />
                     ))}
