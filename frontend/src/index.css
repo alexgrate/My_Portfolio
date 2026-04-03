@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+body {
+    background-color: #f7f7f7;
+    font-family: 'Inter', sans-serif;
+    cursor: hidden;
+}
+
+.logo-font {
+    font-family: 'Alex Brush', cursive;
+}
+
+.hero-serif {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.chip-shadow {
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-glow {
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8);
+}
+
+.video-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 35%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+}
