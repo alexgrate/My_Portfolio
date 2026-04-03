@@ -25,7 +25,7 @@ const ContactSection = () => {
         setStatus("submitting");
 
         try {
-        const response = await fetch("http://localhost:8000/api/contact/", {
+        const response = await fetch("p01--alexdominion--fmvjx7pzd27y.code.run/api/contact/", {
             method: "POST",
             headers: {
             "Content-Type": "application/json",

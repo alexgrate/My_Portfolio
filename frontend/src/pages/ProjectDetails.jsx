@@ -25,12 +25,12 @@ export default function ProjectDetails() {
     const [otherProjects, setOtherProjects] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/projects/${slug}/`)
+        fetch(`p01--alexdominion--fmvjx7pzd27y.code.run/api/projects/${slug}/`)
         .then(res => res.json())
         .then(data => setProject(data))
         .catch(err => console.error(err));
 
-        fetch(`http://localhost:8000/api/projects/`)
+        fetch(`p01--alexdominion--fmvjx7pzd27y.code.run/api/projects/`)
         .then(res => res.json())
         .then(data => {
             const filtered = data.filter(p => p.slug !== slug).slice(0, 3);
