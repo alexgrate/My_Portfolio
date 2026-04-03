@@ -12,7 +12,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
+RUN SECRET_KEY=dummy-secret-key-for-collectstatic \
+    DB_URL=postgres://dummy:dummy@dummy:5432/dummy_db \
+    EMAIL_HOST_USER=dummy@gmail.com \
+    EMAIL_HOST_PASSWORD=dummy \
+    FRONTEND_URL=http://localhost:5173 \
+    DEBUG=False \
+    python manage.py collectstatic --noinput --clear
 
 EXPOSE 8000
 
