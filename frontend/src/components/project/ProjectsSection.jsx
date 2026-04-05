@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import AnimatedItem from '../AnimatedItem';
+import { Link } from 'react-router-dom';
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
@@ -8,7 +9,7 @@ const ProjectsSection = () => {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
       fetch(`${API_BASE_URL}/api/projects/`)
           .then(res => res.json())
-          .then(data => setProjects(data))
+          .then(data => setProjects(data.slice(0, 3)))
           .catch(err => console.error("Error fetching projects:", err)); 
   },[]); 
   
@@ -31,8 +32,9 @@ const ProjectsSection = () => {
         <div className="flex flex-col gap-8 md:gap-12">
           {projects.map((project, index) => (
             <AnimatedItem key={project.id} delay={0.1}>
-              <a
-                href={`/project/${project.slug}`} 
+              <Link
+                key={project.id}
+                to={`/project/${project.slug}`} 
                 data-cursor="project"
                 className="group block w-full rounded-3xl border border-gray-200/60 bg-white p-2 transition-shadow duration-500 hover:shadow-xl hover:shadow-gray-200/40"
               >
@@ -63,14 +65,14 @@ const ProjectsSection = () => {
                     </svg>
                   </div>
                 </div>
-              </a>
+              </Link>
             </AnimatedItem>
           ))}
         </div>
 
         <AnimatedItem delay={0.2} className="mt-16 flex justify-center">
-          <a 
-            href="#projects"
+          <Link
+            to="/projects"
             className="group flex items-center gap-2 rounded-full bg-[#f4f4f4] px-6 py-3.5 text-sm font-medium text-gray-900 transition-colors hover:bg-[#e8e8e8]"
           >
             See All
@@ -88,7 +90,7 @@ const ProjectsSection = () => {
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-          </a>
+          </Link>
         </AnimatedItem>
       </div>
     </section>

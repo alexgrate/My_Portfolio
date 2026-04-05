@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const useReveal = (margin = "-80px") => {
     const ref = useRef(null);
@@ -188,8 +188,8 @@ export default function ProjectDetails() {
                         </div>
 
                         <Reveal delay={0} className="mt-4 flex">
-                        <a
-                            href="/#projects"
+                        <Link
+                            to="/projects"
                             className="group flex items-center gap-2 rounded-full bg-[#f4f4f4] px-6 py-3.5 text-sm font-medium text-gray-900 transition-colors hover:bg-[#e8e8e8]"
                         >
                             See All
@@ -201,7 +201,7 @@ export default function ProjectDetails() {
                                 <line x1="5" y1="12" x2="19" y2="12" />
                                 <polyline points="12 5 19 12 12 19" />
                             </svg>
-                        </a>
+                        </Link>
                         </Reveal>
 
                     </div>

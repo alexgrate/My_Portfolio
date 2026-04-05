@@ -31,6 +31,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -60,13 +61,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
-
-CORS_ALLOWED_ORIGINS =[
-    "http://localhost:5173",
-    "http://localhost:3000",
-    FRONTEND_URL,
+CSRF_TRUSTED_ORIGINS = [
+    'https://my-portfolio-cdpc.onrender.com'
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'core.urls'
 
