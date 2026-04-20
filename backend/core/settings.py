@@ -61,9 +61,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://my-portfolio-cdpc.onrender.com'
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://my-portfolio-cdpc.onrender.com'
+# ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 

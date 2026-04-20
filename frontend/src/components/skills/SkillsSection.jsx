@@ -5,7 +5,7 @@ import AnimatedItem from '../AnimatedItem'
 const skills = ["Python", "Django", "Django REST Framework", "APIs", "React.js", "Tailwind CSS", "JavaScript", "Framer Motion", "Git", "GitHub"]
 
 const experiences = [
-    { id: 1, role: "Volunteer Backend Engineer", company: "Afrivate", date: "2026 - Present" },
+    { id: 1, role: "Backend Engineer", company: "Afrivate", date: "2026 - Present" },
     { id: 2, role: "Full Stack Developer", company: "Lozenge", date: "2026 - Present" },
 ];
 
